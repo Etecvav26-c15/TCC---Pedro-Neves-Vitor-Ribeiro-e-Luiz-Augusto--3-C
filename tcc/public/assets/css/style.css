@@ -1,0 +1,1825 @@
+/* =========================================================
+   SISTEMA ESCOLAR - CSS PRINCIPAL
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    /* Cores principais */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+
+    /* Fundo do sistema */
+    --background: #172033;
+    --sidebar-background: #0f172a;
+
+    /* Cards */
+    --card-background: #ffffff;
+
+    /* Textos */
+    --text: #0f172a;
+    --text-secondary: #64748b;
+    --text-light: #94a3b8;
+    --text-white: #ffffff;
+
+    /* Bordas */
+    --border: #e2e8f0;
+
+
+    /* =====================================================
+       TABELAS NORMAIS
+       ===================================================== */
+
+    --table-background: #ffffff;
+    --table-header: #2563eb;
+    --table-header-text: #ffffff;
+    --table-row-hover: #eff6ff;
+    --table-row-alternate: #f8fafc;
+    --table-border: #e2e8f0;
+
+
+    /* =====================================================
+       TABELA DE HORÁRIOS
+       ===================================================== */
+
+    --schedule-background: #ffffff;
+    --schedule-header: #f8fafc;
+    --schedule-header-text: #0f172a;
+
+    --schedule-time-background: #f1f5f9;
+    --schedule-time-text: #0f172a;
+
+    --schedule-class-background: #eff6ff;
+    --schedule-class-hover: #dbeafe;
+
+    --schedule-border: #e2e8f0;
+
+
+    /* =====================================================
+       STATUS
+       ===================================================== */
+
+    --success: #2ecc71;
+    --success-background: #dcfce7;
+    --success-text: #166534;
+
+    --error: #e74c3c;
+    --error-background: #fee2e2;
+    --error-text: #b91c1c;
+
+    --warning: #f59e0b;
+    --warning-background: #fef3c7;
+    --warning-text: #92400e;
+
+
+    /* =====================================================
+       ESPAÇAMENTOS
+       ===================================================== */
+
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 25px;
+    --space-2xl: 30px;
+    --space-3xl: 40px;
+
+
+    /* =====================================================
+       BORDAS
+       ===================================================== */
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 15px;
+    --radius-2xl: 20px;
+
+
+    /* =====================================================
+       SOMBRAS
+       ===================================================== */
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
+
+    --sidebar-width: 260px;
+    --sidebar-width-mobile: 80px;
+
+
+    /* =====================================================
+       TRANSIÇÕES
+       ===================================================== */
+
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   3. CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+}
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 10px 0;
+    color: var(--text-white);
+}
+
+/* =========================================================
+   4. LAYOUT PRINCIPAL
+   ========================================================= */
+
+.app-container {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: var(--space-2xl);
+}
+
+
+/* =========================================================
+   5. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: var(--sidebar-width);
+
+    flex-shrink: 0;
+
+    background: var(--sidebar-background);
+
+    color: var(--text-white);
+
+    padding: var(--space-lg) 0;
+}
+
+.sidebar a {
+    display: block;
+
+    padding: 12px var(--space-lg);
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: rgba(255, 255, 255, 0.05);
+
+    color: var(--text-white);
+}
+
+
+/* =========================================================
+   6. CABEÇALHO DAS PÁGINAS
+   ========================================================= */
+
+.top-header,
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: var(--space-xl);
+}
+
+.page-header h1 {
+    color: var(--text-white);
+
+    font-size: 38px;
+
+    font-weight: 700;
+}
+
+.page-description {
+    color: var(--text-light);
+
+    margin-top: var(--space-xs);
+}
+
+
+/* =========================================================
+   7. BADGES
+   ========================================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    background: var(--primary);
+
+    color: var(--text-white);
+
+    border-radius: 20px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   8. CARDS
+   ========================================================= */
+
+.card,
+.info-card,
+.form-card,
+.aluno-info,
+.dashboard-card {
+    background: var(--card-background);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   8.1 CARD GENÉRICO
+   ========================================================= */
+
+.card {
+    padding: var(--space-2xl);
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card .icon {
+    display: block;
+
+    font-size: 36px;
+
+    margin-bottom: var(--space-sm);
+}
+
+
+/* =========================================================
+   8.2 CARD DE INFORMAÇÕES
+   ========================================================= */
+
+.info-card {
+    padding: var(--space-xl);
+
+    margin-bottom: var(--space-xl);
+}
+
+
+/* =========================================================
+   9. DASHBOARD
+   ========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: var(--space-xl);
+
+    margin-top: var(--space-xl);
+}
+
+.dashboard-card {
+    display: block;
+
+    padding: var(--space-2xl);
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    text-align: center;
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.20);
+}
+
+.dashboard-card span {
+    display: block;
+
+    font-size: 42px;
+
+    margin-bottom: var(--space-md);
+}
+
+.dashboard-card h3 {
+    color: var(--primary);
+
+    margin-bottom: var(--space-sm);
+}
+
+.dashboard-card p {
+    color: var(--text-secondary);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   10. INFORMAÇÕES DO ALUNO
+   ========================================================= */
+
+.aluno-info {
+    padding: var(--space-2xl);
+
+    margin-bottom: var(--space-2xl);
+}
+
+.aluno-info h2 {
+    color: var(--primary);
+
+    margin-bottom: var(--space-lg);
+}
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: var(--space-lg);
+}
+
+.info-grid div {
+    background: #f8fafc;
+
+    padding: 18px;
+
+    border-radius: var(--radius-md);
+
+    border-left: 5px solid var(--primary);
+}
+
+.info-grid strong {
+    display: block;
+
+    color: var(--text);
+
+    margin-bottom: 6px;
+}
+
+.info-grid p {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   11. FORMULÁRIOS
+   ========================================================= */
+
+.form-card {
+    max-width: 500px;
+
+    padding: var(--space-2xl);
+
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-input {
+    width: 100%;
+
+    padding: 12px;
+
+    background: var(--card-background);
+
+    border: 2px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    font-size: 15px;
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   12. BOTÕES
+   ========================================================= */
+
+.btn {
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: var(--radius-md);
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.btn-primary {
+    width: 100%;
+
+    padding: 14px;
+
+    background: var(--primary);
+
+    color: var(--text-white);
+
+    border-radius: var(--radius-lg);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+
+/* =========================================================
+   13. LINKS
+   ========================================================= */
+
+.link {
+    display: block;
+
+    margin-top: var(--space-lg);
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   14. LOGIN
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: var(--background);
+}
+
+.login-container {
+    width: 100%;
+
+    max-width: 420px;
+
+    padding: var(--space-lg);
+}
+
+.login-card {
+    background: var(--card-background);
+
+    border-radius: var(--radius-2xl);
+
+    padding: 45px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+.login-logo {
+    width: 80px;
+
+    height: 80px;
+
+    margin: auto;
+
+    margin-bottom: var(--space-lg);
+
+    background: var(--sidebar-background);
+
+    color: var(--text-white);
+
+    font-size: 40px;
+
+    border-radius: var(--radius-2xl);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.login-card h1 {
+    font-size: 32px;
+
+    margin-bottom: var(--space-sm);
+
+    color: var(--text);
+}
+
+.login-card p {
+    color: var(--text-secondary);
+
+    margin-bottom: var(--space-2xl);
+}
+
+.login-card .form-group {
+    text-align: left;
+
+    margin-bottom: var(--space-lg);
+}
+
+.login-card label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   15. ALERTAS
+   ========================================================= */
+
+.alert.error {
+    background: var(--error-background);
+
+    color: var(--error-text);
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-bottom: var(--space-lg);
+}
+
+
+/* =========================================================
+   16. TOAST / NOTIFICAÇÕES
+   ========================================================= */
+
+.toast {
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-width: 340px;
+
+    max-width: 450px;
+
+    padding: 18px 22px;
+
+    background: var(--card-background);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.18);
+
+    transform: translateX(150%);
+
+    opacity: 0;
+
+    transition: 0.5s;
+
+    z-index: 9999;
+
+    overflow: hidden;
+}
+
+.toast::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 6px;
+
+    height: 100%;
+}
+
+.toast.sucesso::before {
+    background: var(--success);
+}
+
+.toast.erro::before {
+    background: var(--error);
+}
+
+.toast.show {
+    transform: translateX(0);
+
+    opacity: 1;
+}
+
+.toast-icon {
+    font-size: 30px;
+}
+
+.toast-content {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.toast-title {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-bottom: 3px;
+}
+
+.toast-message {
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   17. TABELAS PADRÃO
+   ========================================================= */
+
+/*
+    Use nas tabelas comuns:
+
+    <div class="table-card">
+        <table class="data-table">
+            ...
+        </table>
+    </div>
+*/
+
+.table-card {
+    width: 100%;
+
+    background: var(--table-background);
+
+    border-radius: var(--radius-xl);
+
+    padding: var(--space-xl);
+
+    margin-top: var(--space-xl);
+
+    box-shadow: var(--shadow-lg);
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   17.1 ESTRUTURA
+   ========================================================= */
+
+.data-table {
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    background: var(--table-background);
+}
+
+
+/* =========================================================
+   17.2 CABEÇALHO
+   ========================================================= */
+
+.data-table thead {
+    background: var(--table-header);
+
+    color: var(--table-header-text);
+}
+
+.data-table thead th {
+    padding: 16px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    border-bottom: 2px solid var(--primary);
+}
+
+
+/* =========================================================
+   17.3 LINHAS
+   ========================================================= */
+
+.data-table tbody tr {
+    background: var(--table-background);
+
+    transition:
+        background var(--transition-fast);
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: var(--table-row-alternate);
+}
+
+.data-table tbody tr:hover {
+    background: var(--table-row-hover);
+}
+
+
+/* =========================================================
+   17.4 CÉLULAS
+   ========================================================= */
+
+.data-table tbody td {
+    padding: 15px 16px;
+
+    color: #334155;
+
+    border-bottom: 1px solid var(--table-border);
+
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   17.5 TABELA VAZIA
+   ========================================================= */
+
+.empty-table {
+    text-align: center;
+
+    padding: 50px;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   18. TABELA DE HORÁRIOS
+   =========================================================
+
+   ESTA TABELA É INDEPENDENTE DAS OUTRAS.
+
+   Não utiliza .data-table.
+
+   Estrutura:
+
+   HORÁRIO | SEGUNDA | TERÇA | QUARTA | QUINTA | SEXTA | SÁBADO
+
+   ========================================================= */
+
+
+/* =========================================================
+   18.1 CONTAINER
+   ========================================================= */
+
+.horarios-container {
+    width: 100%;
+
+    margin-top: var(--space-xl);
+
+    padding: var(--space-lg);
+
+    background: var(--schedule-background);
+
+    border: 1px solid var(--schedule-border);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-lg);
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   18.2 TABELA
+   ========================================================= */
+
+.horarios-table {
+    width: 100%;
+
+    min-width: 1000px;
+
+    table-layout: fixed;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    background: var(--schedule-background);
+
+    border: 1px solid var(--schedule-border);
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   18.3 CABEÇALHO DOS DIAS
+   ========================================================= */
+
+.horarios-table thead th {
+    height: 60px;
+
+    padding: 15px 10px;
+
+    background: var(--schedule-header);
+
+    color: var(--schedule-header-text);
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    border-right: 1px solid var(--schedule-border);
+
+    border-bottom: 2px solid var(--schedule-border);
+}
+
+
+/* =========================================================
+   18.4 COLUNA HORÁRIO
+   ========================================================= */
+
+.horarios-table thead th:first-child {
+    width: 140px;
+
+    background: var(--schedule-time-background);
+
+    color: var(--schedule-time-text);
+}
+
+.horarios-table tbody .col-horario {
+    width: 140px;
+
+    min-width: 140px;
+
+    padding: 12px;
+
+    background: var(--schedule-time-background);
+
+    color: var(--schedule-time-text);
+
+    text-align: center;
+
+    vertical-align: middle;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    border-right: 1px solid var(--schedule-border);
+
+    border-bottom: 1px solid var(--schedule-border);
+}
+
+
+/* =========================================================
+   18.5 "ATÉ"
+   ========================================================= */
+
+.horarios-table .col-horario span {
+    display: block;
+
+    margin: 2px 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   18.6 CÉLULAS DOS DIAS
+   ========================================================= */
+
+.horarios-table tbody td {
+    height: 115px;
+
+    padding: 8px;
+
+    background: var(--schedule-background);
+
+    text-align: center;
+
+    vertical-align: middle;
+
+    border-right: 1px solid var(--schedule-border);
+
+    border-bottom: 1px solid var(--schedule-border);
+}
+
+
+/* =========================================================
+   18.7 ÚLTIMA COLUNA
+   ========================================================= */
+
+.horarios-table thead th:last-child,
+.horarios-table tbody td:last-child {
+    border-right: none;
+}
+
+
+/* =========================================================
+   18.8 CARD DA AULA
+   ========================================================= */
+
+.horarios-table .aula {
+    width: 100%;
+
+    min-height: 90px;
+
+    padding: 12px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+
+    background: var(--schedule-class-background);
+
+    border-left: 4px solid var(--primary);
+
+    border-radius: var(--radius-md);
+
+    text-align: center;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+/* =========================================================
+   18.9 MATÉRIA
+   ========================================================= */
+
+.horarios-table .aula-materia {
+    display: block;
+
+    width: 100%;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   18.10 PROFESSOR
+   ========================================================= */
+
+.horarios-table .aula-professor {
+    display: block;
+
+    width: 100%;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.3;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   18.11 SEM AULA
+   ========================================================= */
+
+.horarios-table .aula-vazia {
+    color: #cbd5e1;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   18.12 HOVER
+   ========================================================= */
+
+.horarios-table tbody td:hover {
+    background: #fafafa;
+}
+
+.horarios-table tbody td:hover .aula {
+    background: var(--schedule-class-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   18.13 ÚLTIMA LINHA
+   ========================================================= */
+
+.horarios-table tbody tr:last-child td,
+.horarios-table tbody tr:last-child .col-horario {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   19. HORÁRIOS ANTIGOS
+   =========================================================
+
+   Mantido para evitar quebrar páginas antigas que ainda
+   utilizam .grid-horarios / .dia-col / .aula-card.
+   ========================================================= */
+
+.grid-horarios {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: var(--space-lg);
+
+    width: 100%;
+}
+
+.dia-col {
+    background: var(--card-background);
+
+    border-radius: var(--radius-lg);
+
+    padding: var(--space-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.dia-col h3 {
+    margin-bottom: var(--space-md);
+
+    color: var(--primary);
+
+    font-size: 16px;
+}
+
+.aula-card {
+    padding: 12px;
+
+    margin-bottom: var(--space-sm);
+
+    background: #eff6ff;
+
+    border-left: 4px solid var(--primary);
+
+    border-radius: var(--radius-md);
+}
+
+.aula-card strong {
+    display: block;
+
+    color: var(--text);
+
+    margin-bottom: 4px;
+}
+
+.aula-card small {
+    display: block;
+
+    color: var(--text-secondary);
+
+    margin-bottom: 4px;
+}
+
+.aula-card span {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   20. TRANSIÇÕES DE PÁGINA
+   ========================================================= */
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(root) {
+    animation-duration: 0.45s;
+
+    animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+    animation: fadeOut 0.45s ease;
+}
+
+::view-transition-new(root) {
+    animation: fadeIn 0.45s ease;
+}
+
+@keyframes fadeOut {
+
+    to {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   21. RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Sidebar */
+
+    .sidebar {
+        width: var(--sidebar-width-mobile);
+    }
+
+    .sidebar span {
+        display: none;
+    }
+
+
+    /* Conteúdo */
+
+    .main-content {
+        padding: var(--space-lg);
+    }
+
+
+    /* Cabeçalho */
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Login */
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+
+    /* Toast */
+
+    .toast {
+        left: 15px;
+
+        right: 15px;
+
+        min-width: auto;
+
+        width: auto;
+    }
+
+
+    /* Tabela normal */
+
+    .table-card {
+        padding: 10px;
+    }
+
+
+    /* Tabela de horários */
+
+    .horarios-container {
+        padding: 10px;
+    }
+
+    .horarios-table {
+        min-width: 900px;
+    }
+}
+
+/* =========================================================
+   TABELA DE FREQUÊNCIA DO ALUNO
+   ========================================================= */
+
+.frequencia-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+}
+
+/* Largura das colunas */
+
+.frequencia-table .col-materia {
+    width: 45%;
+}
+
+.frequencia-table .col-presencas {
+    width: 18%;
+}
+
+.frequencia-table .col-faltas {
+    width: 18%;
+}
+
+.frequencia-table .col-justificadas {
+    width: 19%;
+}
+
+/* Cabeçalho */
+
+.frequencia-table th {
+    text-align: left;
+    padding: 18px 16px !important;
+}
+
+/* Centralizar números */
+
+.frequencia-table th:nth-child(2),
+.frequencia-table th:nth-child(3),
+.frequencia-table th:nth-child(4),
+.frequencia-table td:nth-child(2),
+.frequencia-table td:nth-child(3),
+.frequencia-table td:nth-child(4) {
+    text-align: center !important;
+}
+
+/* Matéria */
+
+.frequencia-table td:first-child {
+    text-align: left !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Linhas */
+
+.frequencia-table tbody td {
+    padding: 20px 16px !important;
+    vertical-align: middle !important;
+}
+
+
+/* =========================================================
+   LANÇAR NOTAS - PROFESSOR
+   ========================================================= */
+
+.notas-page-header {
+    margin-bottom: 25px;
+}
+
+.notas-page-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.notas-page-header .page-description {
+    margin-top: 8px;
+    color: var(--text-light);
+}
+
+
+/* =========================================================
+   SELEÇÃO DA TURMA
+   ========================================================= */
+
+.notas-turma {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.campo-turma {
+    width: 100%;
+}
+
+.campo-turma label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-white);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo-turma .form-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD DE NOTAS
+   ========================================================= */
+
+.notas-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.notas-filtros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.campo-nota {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-nota label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo-nota .form-input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.notas-tabela {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.notas-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+
+/* Cabeçalho */
+
+.notas-table thead {
+    background: var(--primary);
+    color: var(--text-white);
+}
+
+.notas-table th {
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.notas-table th:last-child {
+    width: 200px;
+    text-align: center;
+}
+
+
+/* Corpo */
+
+.notas-table tbody tr {
+    background: var(--table-background);
+    transition: background var(--transition-fast);
+}
+
+.notas-table tbody tr:nth-child(even) {
+    background: var(--table-row-alternate);
+}
+
+.notas-table tbody tr:hover {
+    background: var(--table-row-hover);
+}
+
+.notas-table td {
+    padding: 16px;
+    color: #334155;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.notas-table td:first-child {
+    text-align: left;
+}
+
+
+/* =========================================================
+   SELECT DAS NOTAS
+   ========================================================= */
+
+.nota-select {
+    display: block;
+    width: 160px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: #ffffff;
+    color: var(--text);
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nota-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.notas-acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.btn-salvar-notas {
+    min-width: 220px;
+    height: 48px;
+}
+
+
+/* =========================================================
+   ALERTA
+   ========================================================= */
+
+.notas-card .alert {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .notas-card {
+        padding: 20px;
+    }
+
+    .notas-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .notas-page-header h1 {
+        font-size: 26px;
+    }
+
+    .notas-acoes {
+        justify-content: stretch;
+    }
+
+    .btn-salvar-notas {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   REGISTRAR CHAMADA - PROFESSOR
+   ========================================================= */
+
+.chamada-page {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.chamada-page h1 {
+    margin: 0 0 20px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+
+/* =========================================================
+   SELEÇÃO DA TURMA
+   ========================================================= */
+
+.chamada-page > form:first-of-type {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.chamada-page > form:first-of-type .form-input {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+   ========================================================= */
+
+.chamada-page .form-card {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+
+    background: var(--card-background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   CAMPOS DE MATÉRIA E DATA
+   ========================================================= */
+
+.chamada-page .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.chamada-page .form-group .form-input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TABELA DA CHAMADA
+   ========================================================= */
+
+.chamada-page .data-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 20px;
+    table-layout: fixed !important;
+    border-collapse: collapse;
+}
+
+
+/* Cabeçalho */
+
+.chamada-page .data-table thead {
+    background: var(--primary);
+    color: var(--text-white);
+}
+
+.chamada-page .data-table th {
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.chamada-page .data-table th:first-child {
+    width: 65%;
+}
+
+.chamada-page .data-table th:last-child {
+    width: 35%;
+    text-align: center;
+}
+
+
+/* Corpo */
+
+.chamada-page .data-table td {
+    padding: 16px;
+    vertical-align: middle;
+}
+
+.chamada-page .data-table td:first-child {
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.chamada-page .data-table td:last-child {
+    text-align: center;
+}
+
+
+/* =========================================================
+   SELECT DE PRESENÇA
+   ========================================================= */
+
+.chamada-page .data-table .form-input {
+    width: 100%;
+    max-width: 220px;
+    height: 44px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.chamada-page .btn {
+    margin-top: 25px;
+}
+
+.chamada-page .btn-primary {
+    min-width: 220px;
+    height: 48px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .chamada-page .form-card {
+        padding: 20px;
+    }
+
+    .chamada-page h1 {
+        font-size: 26px;
+    }
+
+    .chamada-page .data-table th:first-child {
+        width: 60%;
+    }
+
+    .chamada-page .data-table th:last-child {
+        width: 40%;
+    }
+
+}
